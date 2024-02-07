@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:16:55 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/06 19:52:33 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/07 23:56:29 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/07 23:56:29 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
+int ft_strcmp(char *s1, char *s2)
 {
-	int		i;
-
+	int	i;
 	i = 0;
-	while (str[i] != '\0')
+
+	while(*s1 && (*s1 == *s2))
 	{
-		if ((str[i] >= 'A') && (str[i] <= 'Z'))
-			i++;
-		else
-			return (0);
+		s1++;
+		s2++;
 	}
-	return (1);
+	return (*s1 - *s2);
 }
