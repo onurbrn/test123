@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:13:47 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/08 02:37:03 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/07 23:56:29 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/07 23:56:29 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlen(char *str)
+int ft_strcmp(char *s1, char *s2)
 {
-	unsigned int counter;
-
-	counter = 0;
-	while (*str != '\0')
-	{
-		counter++;
-		str++;
-	}
-	return (counter);
-}
-
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int	i;
-
-	if (size == 0)
-		return (ft_strlen(src));
+	int	i;
 	i = 0;
-	while (i < size - 1 && src[i] != '\0')
+
+	while(*s1 && (*s1 == *s2))
 	{
-		dest[i] = src[i];
-		i++;
+		s1++;
+		s2++;
 	}
-	dest[i] = '\0';
-	return (ft_strlen(src));
+	return (*s1 - *s2);
 }

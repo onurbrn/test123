@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:16:50 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/06 17:42:27 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/08 00:07:52 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/08 00:11:46 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (str[i])
+	if (s1[i] == '\0' && n != 0)
+		return (s1[i] - s2[i]);
+	while (s1[i] != '\0' && i < n)
 	{
-		if (str[i] <= 122 && str[i] >= 97)
+		if (s1[i] == s2[i])
 		{
-			str[i] = str[i] - 32;
+			i++;
 		}
-		i++;
+		else
+			return (s1[i] - s2[i]);
 	}
-	return (str);
+	if (s2[i] != '\0' && i < n)
+		return (s1[i] - s2[i]);
+	return (0);
 }
+

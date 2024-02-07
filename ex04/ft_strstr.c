@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:16:55 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/06 19:52:33 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/08 01:47:40 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/08 01:47:40 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
+char    *ft_strstr(char *str, char *to_find)
 {
-	int		i;
+	int	i;
+	int	j;
 
+	j = 0;
 	i = 0;
+	if (to_find[j] == '\0')
+	{
+		return (str);
+	}
 	while (str[i] != '\0')
 	{
-		if ((str[i] >= 'A') && (str[i] <= 'Z'))
-			i++;
-		else
-			return (0);
+		while (str[i + j] == to_find[j] && str[i + j] != '\0') // onurasd asd
+			j++;
+		if (to_find[j] == '\0')
+			return (str + i);
+		i++;
+		j = 0;
 	}
-	return (1);
+	return (0);
 }

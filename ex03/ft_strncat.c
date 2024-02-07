@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*    ft_strncat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:17:02 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/06 19:50:25 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/08 01:47:42 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/08 01:55:03 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
+char    *ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int		i;
+	unsigned int	j;
+	unsigned int	i;
 
+	j = 0;
 	i = 0;
-	while (str[i] != '\0')
+	while (dest[i] != '\0')
 	{
-		if ((str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
-		{
-			return (0);
-		}
 		i++;
 	}
-	return (1);
+	while (src[j] != '\0' && j < nb)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
