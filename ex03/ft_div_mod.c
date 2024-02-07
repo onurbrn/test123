@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 01:47:09 by odalkili          #+#    #+#             */
-/*   Updated: 2024/01/30 19:10:43 by odalkili         ###   ########.fr       */
+/*   Created: 2024/01/30 23:01:47 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/06 13:38:59 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	write(1, &c, 1);
+	*div = a / b;
+	*mod = a % b;
 }

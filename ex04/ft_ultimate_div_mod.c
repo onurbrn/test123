@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 07:37:18 by odalkili          #+#    #+#             */
-/*   Updated: 2024/01/30 19:21:56 by odalkili         ###   ########.fr       */
+/*   Created: 2024/01/30 23:58:07 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/06 13:36:56 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_alphabet(void)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	char	count;
+	int	temp;
 
-	count = 'a';
-	while (count <= 'z')
-	{
-		write(1, &count, 1);
-		count++;
-	}
+	temp = *a / *b;
+	*b = *a % *b;
+	*a = temp;
 }

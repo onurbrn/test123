@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/27 22:19:05 by odalkili          #+#    #+#             */
-/*   Updated: 2024/01/28 00:46:38 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/01 22:06:26 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/06 18:31:08 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_comb(void)
+void	ft_swap(int *a, int*b)
 {
-	int	a;
-	int	b;
-	int	c;
+	int	temp;
 
-	a = '0';
-	while (a <= '7')
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void	ft_sort_int_tab(int *tab, int size)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (x < size)
 	{
-		b = a + 1;
-		while (b <= '8')
+		y = 0;
+		while (y < (size - 1))
 		{
-			c = b + 1;
-			while (c <= '9')
+			if (tab[y] > tab[y + 1])
 			{
-				write (1, &a, 1);
-				write (1, &b, 1);
-				write (1, &c, 1);
-				if (a != '7')
-					write (1, ", ", 2);
-				c++;
+				ft_swap(&tab[y], &tab[y + 1]);
 			}
-			b++;
+			y++;
 		}
-		a++;
+		x++;
 	}
 }

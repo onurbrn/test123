@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 07:50:34 by odalkili          #+#    #+#             */
-/*   Updated: 2024/01/30 19:24:22 by odalkili         ###   ########.fr       */
+/*   Created: 2024/01/31 10:34:05 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/03 20:54:47 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_print_reverse_alphabet(void)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	int	count;
+	int	index;
+	int	tmp;
 
-	count = 'z';
-	while (count >= 'a')
+	index = 0;
+	while (index < (size / 2))
 	{
-		write(1, &count, 1);
-		count--;
+		tmp = tab[index];
+		tab[index] = tab[size - 1 - index];
+		tab[size - 1 - index] = tmp;
+		index++;
 	}
 }
