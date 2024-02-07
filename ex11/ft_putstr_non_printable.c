@@ -6,11 +6,9 @@
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 20:22:17 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/08 02:38:55 by odalkili         ###   ########.fr       */
+/*   Updated: 2024/02/08 02:40:46 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 void	ft_putchar(char c)
 {
@@ -61,3 +59,4 @@ void	ft_putstr_non_printable(char *str)
 		i++;
 	}
 }
+
