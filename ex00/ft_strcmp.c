@@ -6,16 +6,16 @@
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 23:56:29 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/07 23:56:29 by odalkili         ###   ########.fr       */
+/*   Updated: 2024/02/08 02:49:58 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
-	i = 0;
 
-	while(*s1 && (*s1 == *s2))
+	i = 0;
+	while (*s1 && (*s1 == *s2))
 	{
 		s1++;
 		s2++;
