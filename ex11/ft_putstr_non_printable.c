@@ -6,52 +6,58 @@
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 20:22:17 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/07 23:21:56 by odalkili         ###   ########.fr       */
+/*   Updated: 2024/02/08 02:38:55 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_init_hex_table(char base[])
+void	ft_putchar(char c)
 {
-	base[0] = '0';
-	base[1] = '1';
-	base[2] = '2';
-	base[3] = '3';
-	base[4] = '4';
-	base[5] = '5';
-	base[6] = '6';
-	base[7] = '7';
-	base[8] = '8';
-	base[9] = '9';
-	base[10] = 'a';
-	base[11] = 'b';
-	base[12] = 'c';
-	base[13] = 'd';
-	base[14] = 'e';
-	base[15] = 'f';
+	write(1, &c, 1);
+}
+
+void	ft_put_hexa(int c, int err)
+{
+	char	*base;
+
+	base = "0123456789abcdef";
+	if (c <= 0 && err == 0)
+	{
+		c += 256;
+	}
+	if (c >= 16)
+	{
+		ft_put_hexa(c / 16, 1);
+		ft_put_hexa(c % 16, 1);
+	}
+	else
+	{
+		if (err == 0)
+			ft_putchar('0');
+		ft_putchar(base[c]);
+	}
 }
 
 void	ft_putstr_non_printable(char *str)
 {
-	int		i;
-	char	a;
-	char	b;
-	char	base[16];
+	int i;
+	int j;
 
-	ft_init_hex_table(base);
-	i = -1;
-	while (str[++i] != '\0')
+	i = 0;
+	j = 0;
+	while (str[i])
 	{
-		if ((str[i] >= 32 && str[i] <= 126))
-			write(1, &str[i], 1);
+		if (str[i] < 32 || str[i] == 127)
+		{
+			ft_putchar('\\');
+			j = str[i];
+			ft_put_hexa(j, 0);
+		}
 		else
 		{
-			a = base[str[i] / 16];
-			b = base[str[i] % 16];
-			write(1, "\\", 1);
-			write(1, &a, 1);
-			write(1, &b, 1);
+			ft_putchar(str[i]);
 		}
+		i++;
 	}
 }
