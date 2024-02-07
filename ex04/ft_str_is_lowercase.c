@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 01:47:43 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/08 01:47:44 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/06 17:16:57 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/06 19:51:47 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src)
+int	ft_str_is_lowercase(char *str)
 {
 	int	i;
-	int	j;
 
-	j = 0;
 	i = 0;
-	while (dest[i] != '\0')
+	while (str[i] != '\0')
 	{
-		i++;
+		if ((str[i] >= 'a') && (str[i] <= 'z'))
+			i++;
+		else
+			return (0);
 	}
-	while (src[j] != '\0')
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	return (1);
 }

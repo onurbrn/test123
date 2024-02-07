@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 00:07:52 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/08 00:11:46 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/06 17:17:02 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/06 19:50:25 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_str_is_alpha(char *str)
 {
-	unsigned int	i;
+	int		i;
 
 	i = 0;
-	if (s1[i] == '\0' && n != 0)
-		return (s1[i] - s2[i]);
-	while (s1[i] != '\0' && i < n)
+	while (str[i] != '\0')
 	{
-		if (s1[i] == s2[i])
+		if ((str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
 		{
-			i++;
+			return (0);
 		}
-		else
-			return (s1[i] - s2[i]);
+		i++;
 	}
-	if (s2[i] != '\0' && i < n)
-		return (s1[i] - s2[i]);
-	return (0);
+	return (1);
 }
-
