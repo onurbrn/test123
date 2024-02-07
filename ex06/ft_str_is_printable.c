@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 22:06:26 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/06 18:31:08 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/06 17:16:52 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/06 19:52:26 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap(int *a, int*b)
+int	ft_str_is_printable(char *str)
 {
-	int	temp;
+	int	i;
 
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
-void	ft_sort_int_tab(int *tab, int size)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	while (x < size)
+	i = 0;
+	while (str[i])
 	{
-		y = 0;
-		while (y < (size - 1))
-		{
-			if (tab[y] > tab[y + 1])
-			{
-				ft_swap(&tab[y], &tab[y + 1]);
-			}
-			y++;
-		}
-		x++;
+		if ((str[i] >= 32) && (str[i] <= 126))
+			i++;
+		else
+			return (0);
 	}
+	return (1);
 }

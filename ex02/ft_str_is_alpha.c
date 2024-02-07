@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 00:23:27 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/03 20:54:46 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/06 17:17:02 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/06 19:50:25 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_str_is_alpha(char *str)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
+		if ((str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
+		{
+			return (0);
+		}
 		i++;
 	}
-	return (i);
+	return (1);
 }

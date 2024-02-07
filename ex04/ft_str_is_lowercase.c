@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_div_mod.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 23:01:47 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/06 13:38:59 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/06 17:16:57 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/06 19:51:47 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-void	ft_div_mod(int a, int b, int *div, int *mod)
+int	ft_str_is_lowercase(char *str)
 {
-	*div = a / b;
-	*mod = a % b;
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] >= 'a') && (str[i] <= 'z'))
+			i++;
+		else
+			return (0);
+	}
+	return (1);
 }

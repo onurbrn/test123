@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 00:01:24 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/04 18:52:13 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/06 17:13:47 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/06 20:17:57 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	while (*str != '\0')
+	unsigned int	i;
+	unsigned int	count;
+
+	count = 0;
+	i = 0;
+	while (i < size - 1 && src[i] != '\0')
 	{
-		write(1, str, 1);
-		str++;
+		dest[i] = src[i];
+		i++;
 	}
+	while (dest[count] != '\0')
+		count++;
+	dest[i] = '\0';
+	return (count);
 }

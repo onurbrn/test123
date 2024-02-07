@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 22:38:17 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/03 20:54:40 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/06 17:16:47 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/06 17:42:34 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap(int *a, int *b)
+char	*ft_strlowcase(char *str)
 {
-	int	temp;
+	int	i;
 
-	temp = *a;
-	*a = *b;
-	*b = temp;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] <= 90 && str[i] >= 65)
+		{
+			str[i] = str[i] + 32;
+		}
+		i++;
+	}
+	return (str);
 }

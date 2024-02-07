@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 23:58:07 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/06 13:36:56 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/06 17:16:50 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/06 17:42:27 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_ultimate_div_mod(int *a, int *b)
+char	*ft_strupcase(char *str)
 {
-	int	temp;
+	int	i;
 
-	temp = *a / *b;
-	*b = *a % *b;
-	*a = temp;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] <= 122 && str[i] >= 97)
+		{
+			str[i] = str[i] - 32;
+		}
+		i++;
+	}
+	return (str);
 }

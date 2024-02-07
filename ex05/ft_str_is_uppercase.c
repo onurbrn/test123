@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 10:34:05 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/03 20:54:47 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/06 17:16:55 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/06 19:52:33 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_rev_int_tab(int *tab, int size)
+int	ft_str_is_uppercase(char *str)
 {
-	int	index;
-	int	tmp;
+	int		i;
 
-	index = 0;
-	while (index < (size / 2))
+	i = 0;
+	while (str[i] != '\0')
 	{
-		tmp = tab[index];
-		tab[index] = tab[size - 1 - index];
-		tab[size - 1 - index] = tmp;
-		index++;
+		if ((str[i] >= 'A') && (str[i] <= 'Z'))
+			i++;
+		else
+			return (0);
 	}
+	return (1);
 }
