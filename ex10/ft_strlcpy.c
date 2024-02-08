@@ -6,7 +6,7 @@
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:13:47 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/08 05:04:27 by odalkili         ###   ########.fr       */
+/*   Updated: 2024/02/08 05:06:32 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ unsigned int	ft_strlen(char *str)
 		counter++;
 		str++;
 	}
-	return (str);
+	return (counter);
 }
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
