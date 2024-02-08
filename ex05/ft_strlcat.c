@@ -6,7 +6,7 @@
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 01:47:37 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/08 02:50:50 by odalkili         ###   ########.fr       */
+/*   Updated: 2024/02/08 03:47:19 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		i++;
 	while (src[res] != '\0')
 		res++;
-	if (size <= i)
+	if (size <= i) // size dest'in boyutundan küçükse ve eşitse rese size kadar ekle
 		res += size;
-	else
+	else // size destin boyutundan büyükse rese destin hane sayısı kadar ekler
 		res += i;
 	while (src[j] != '\0' && (i + 1) < size)
 	{
