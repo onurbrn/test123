@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 21:02:38 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/10 21:02:39 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/10 21:10:06 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/10 21:10:25 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_put_hexa(int c)
 void	ft_putstr_non_printable(char *str)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	while (str[i])
@@ -45,8 +44,7 @@ void	ft_putstr_non_printable(char *str)
 		if (str[i] < 32 || str[i] == 127)
 		{
 			ft_putchar('\\');
-			j = str[i];
-			ft_put_hexa(j);
+			ft_put_hexa(str[i]);
 		}
 		else
 		{
