@@ -5,36 +5,59 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 20:22:17 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/08 02:41:58 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/08 06:26:01 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/08 06:26:37 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
+void	ft_put_hexa(int c, int err)
+{
+	char	*base;
+
+	base = "0123456789abcdef";
+	if (c <= 0 && err == 0)
+	{
+		c += 256;
+	}
+	if (c >= 16)
+	{
+		ft_put_hexa(c / 16, 1);
+		ft_put_hexa(c % 16, 1);
+	}
+	else
+	{
+		if (err == 0)
+			ft_putchar('0');
+		ft_putchar(base[c]);
+	}
+}
+
 void	ft_putstr_non_printable(char *str)
 {
-	unsigned char	tmp;
-	unsigned char	*cursor;
-	char			*hex_symbols;
+	int	i;
+	int	j;
 
-	hex_symbols = "0123456789abcdef";
-	cursor = (unsigned char*)str;
-	while (*cursor != '\0')
+	i = 0;
+	j = 0;
+	while (str[i])
 	{
-		if (*cursor >= ' ' && *cursor <= '~')
-			write(1, cursor, 1);
-		else
+		if (str[i] < 32 || str[i] == 127)
 		{
 			ft_putchar('\\');
-			tmp = *cursor / 16;
-			ft_putchar(hex_symbols[tmp]);
-			tmp = *cursor % 16;
-			ft_putchar(hex_symbols[tmp]);
+			j = str[i];
+			ft_put_hexa(j, 0);
 		}
-		cursor++;
+		else
+		{
+			ft_putchar(str[i]);
+		}
+		i++;
 	}
 }
