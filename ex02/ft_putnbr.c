@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:13:50 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/06 17:35:40 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/10 17:53:10 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/10 21:43:28 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
-{
-	unsigned int	i;
+#include <unistd.h>
 
-	i = 0;
-	while (i < n && src[i] != '\0')
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		dest[i] = src[i];
-		i++;
+		write (1, "-", 1);
+		write (1, "2147483648", 10);
 	}
-	while (i < n)
+	else if (nb >= 10)
 	{
-		dest[i] = '\0';
-		i++;
+		ft_putnbr (nb / 10);
+		ft_putchar ((nb % 10) + 48);
 	}
-	return (dest);
+	else if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = nb * -1;
+		ft_putnbr(nb);
+	}
+	else
+	{
+		ft_putchar(nb + 48);
+	}
 }

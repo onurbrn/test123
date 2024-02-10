@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:16:50 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/06 17:42:27 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/10 17:45:24 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/10 17:45:54 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] <= 122 && str[i] >= 97)
-		{
-			str[i] = str[i] - 32;
-		}
 		i++;
 	}
-	return (str);
+	return (i);
 }

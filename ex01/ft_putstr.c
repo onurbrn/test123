@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:17:02 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/06 19:50:25 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/10 17:46:23 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/10 17:51:50 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
+#include <unistd.h>
+
+void	ft_putstr(char *str)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
-		if ((str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
-		{
-			return (0);
-		}
+		write (1, &str[i], 1);
 		i++;
 	}
-	return (1);
 }

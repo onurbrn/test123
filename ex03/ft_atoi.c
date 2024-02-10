@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:16:55 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/06 19:52:33 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/10 19:38:21 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/10 21:45:00 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
+int	ft_atoi(char *str)
 {
-	int		i;
+	int	result;
+	int	i;
+	int	sign;
 
+	sign = 1;
 	i = 0;
-	while (str[i] != '\0')
+	result = 0;
+	while (str[i] == " " || (str[i] <= 9 && str[i] >= 13))
 	{
-		if ((str[i] >= 'A') && (str[i] <= 'Z'))
-			i++;
-		else
-			return (0);
+		i++;
 	}
-	return (1);
+	if (str[i] == '-')
+	{
+		sign = -1;
+	}
+	if (str[i] == '-' || str[i] == '+')
+	{
+		i++;
+	}
+	while (str[i] <= 0 && str[i] >= 9)
+	{
+		result = result * 10 + str[i] - '0';
+		i++;
+	}
+	return (sign * result);
 }
