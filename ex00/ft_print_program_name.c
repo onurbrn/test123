@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 19:38:21 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/10 21:56:11 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/13 16:38:58 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/13 19:20:41 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int	result;
-	int	i;
-	int	sign;
+#include <unistd.h>
 
-	sign = 1;
+int	main(int ac, char **av)
+{
+	int	i;
+
 	i = 0;
-	result = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	(void)ac;
+	while (av[0][i])
 	{
+		write (1, &av[0][i], 1);
 		i++;
 	}
-	while (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-		{
-			sign *= -1;
-		}
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + str[i] - '0';
-		i++;
-	}
-	return (sign * result);
+	write (1, "\n", 1);
+	return (0);
 }

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odalkili <odalkili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 17:46:23 by odalkili          #+#    #+#             */
-/*   Updated: 2024/02/10 17:51:50 by odalkili         ###   ########.fr       */
+/*   Created: 2024/02/13 17:14:25 by odalkili          #+#    #+#             */
+/*   Updated: 2024/02/13 19:21:33 by odalkili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+int	main(int ac, char **av)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (str[i])
+	j = 0;
+	while (i < ac)
 	{
-		write (1, &str[i], 1);
+		j = 0;
+		while (av[i][j])
+		{
+			write(1, &av[i][j], 1);
+			j++;
+		}
 		i++;
+		write (1, "\n", 1);
 	}
 }
